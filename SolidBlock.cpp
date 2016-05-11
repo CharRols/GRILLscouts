@@ -10,7 +10,7 @@ ASolidBlock::ASolidBlock(const class FObjectInitializer& PCIP) : Super(PCIP)
 	myBlock = PCIP.CreateAbstractDefaultSubobject<UStaticMeshComponent>(this, TEXT("SolidBlock"));
 
     //Mesh to be used for the actor
-	static ConstructorHelpers::FObjectFinder <UStaticMesh>StaticMesh(TEXT("StaticMesh'/Engine/BasicShapes/SolidBlock.SolidBlock'"));
+	static ConstructorHelpers::FObjectFinder <UStaticMesh>StaticMesh(TEXT("StaticMesh'/Engine/BasicShapes/Cube.Cube'"));
 	//Material to be put on the mesh
 	static ConstructorHelpers::FObjectFinder <UMaterial> Material(TEXT("Material'/Game/StarterContent/Materials/M_Wood_Oak.M_Wood_Oak'")); 
 
