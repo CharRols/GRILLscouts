@@ -26,14 +26,16 @@ void AMyGameMode::BeginPlay() {
 
 
 		//Spawn a Blueprint-Defined Actor
+		//AStoneSphere mySphere = World->SpawnActor<AStoneSphere>(AStoneSphere::StaticClass());
 
-		static ConstructorHelpers::FObjectFinder<UBlueprint> ItemBlueprint(TEXT("Blueprint'/Game/StoneSphere.StoneSphere'"));
-		if (ItemBlueprint.Object) {
-			TSubclassOf<AActor> MyItemBlueprint = (UClass*)ItemBlueprint.Object->GeneratedClass;
-		}
 
-		FRotator spawnRot = FRotator(40, 40, 40);
-		FVector spawnLoc = FVector(90, 90, 210);
+		//static ConstructorHelpers::FObjectFinder<UBlueprint> ItemBlueprint(TEXT("Blueprint'/Game/StoneSphere.StoneSphere'"));
+		//if (ItemBlueprint.Object) {
+			//TSubclassOf<AActor> MyItemBlueprint = (UClass*)ItemBlueprint.Object->GeneratedClass;
+		//}
+
+		//FRotator spawnRot = FRotator(40, 40, 40);
+		//FVector spawnLoc = FVector(90, 90, 210);
 		//AActor* mySphere = SpawnBP<AActor>(World, StoneSphere, spawnLoc, spawnRot);
 
 
