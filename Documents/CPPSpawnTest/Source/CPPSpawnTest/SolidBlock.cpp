@@ -14,7 +14,8 @@ ASolidBlock::ASolidBlock(const class FObjectInitializer& PCIP) : Super(PCIP) {
 	myBlock->SetStaticMesh(StaticMesh.Object);
 	myBlock->SetMaterial(0, Material.Object);
 
-	//Spawn a blueprint defined actor when this c++ defined actor is spawned. **FObjectFinder MUST be used in a constructor
+	//Spawn a blueprint defined actor when this c++ defined actor is spawned. **FObjectFinder MUST be used in a constructor so
+	//this can't be placed in BeginPlay() in the game mode code
 	static ConstructorHelpers::FObjectFinder<UBlueprint> stoneSphere(TEXT("Blueprint'/Game/StoneSphereBP.StoneSphereBP'"));
 	if (stoneSphere.Object) {
 		myStoneSphere = (UClass*)stoneSphere.Object->GeneratedClass;
