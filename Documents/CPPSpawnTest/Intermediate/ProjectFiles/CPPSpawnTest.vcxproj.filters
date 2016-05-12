@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\CPPSpawnTest.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{70EDC068-399D-4EE9-BD44-6632653C194E}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\CPPSpawnTest.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\CPPSpawnTestEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <Filter Include="Config">
+      <UniqueIdentifier>{1127176B-70B6-48A0-8879-E800C8B78D18}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\CPPSpawnTest">
+      <UniqueIdentifier>{AAB62121-B2FE-485F-BED2-DE2F443FE2D0}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\CPPSpawnTest\CPPSpawnTest.Build.cs">
+      <Filter>Source\CPPSpawnTest</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\CPPSpawnTest\CPPSpawnTest.cpp">
+      <Filter>Source\CPPSpawnTest</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CPPSpawnTest\CPPSpawnTest.h">
+      <Filter>Source\CPPSpawnTest</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CPPSpawnTest\MyWorldSettings.cpp">
+      <Filter>Source\CPPSpawnTest</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CPPSpawnTest\MyWorldSettings.h">
+      <Filter>Source\CPPSpawnTest</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Source\CPPSpawnTest\MyPlayerController.h">
+      <Filter>Source\CPPSpawnTest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CPPSpawnTest\MyGameMode.h">
+      <Filter>Source\CPPSpawnTest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CPPSpawnTest\MyActorComponent.h">
+      <Filter>Source\CPPSpawnTest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CPPSpawnTest\SolidBlock.h">
+      <Filter>Source\CPPSpawnTest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CPPSpawnTest\WoodenSphere.h">
+      <Filter>Source\CPPSpawnTest</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CPPSpawnTest\Item.h">
+      <Filter>Source\CPPSpawnTest</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Source\CPPSpawnTest\MyPlayerController.cpp">
+      <Filter>Source\CPPSpawnTest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CPPSpawnTest\MyGameMode.cpp">
+      <Filter>Source\CPPSpawnTest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CPPSpawnTest\MyActorComponent.cpp">
+      <Filter>Source\CPPSpawnTest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CPPSpawnTest\SolidBlock.cpp">
+      <Filter>Source\CPPSpawnTest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CPPSpawnTest\WoodenSphere.cpp">
+      <Filter>Source\CPPSpawnTest</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CPPSpawnTest\Item.cpp">
+      <Filter>Source\CPPSpawnTest</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
