@@ -6,12 +6,13 @@
 #include "SolidBlock.generated.h"
 
 UCLASS()
-class CPPSPAWNTEST_API ASolidBlock : public AActor
-{
+class CPPSPAWNTEST_API ASolidBlock : public AActor {
 	GENERATED_BODY()
 	
 public:	
+
 	UStaticMeshComponent* myBlock;
+
 	//used for spawned bp-defined actor
 	TSubclassOf<class AActor> myStoneSphere;
 
@@ -23,7 +24,5 @@ public:
 	
 	// Called every frame
 	virtual void Tick( float DeltaSeconds ) override;
-
-	
 	
 };

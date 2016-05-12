@@ -23,18 +23,6 @@ void ACPPSpawnTestGameMode::BeginPlay() {
 		//myBlock->SetActorLocation(location); 
 		//myBlock->SetActorRotation(rotation);
 		myBlock->SetActorLocationAndRotation(location, rotation);
-
-
-		//Spawn a Blueprint-Defined Actor
-		
-		
-		
-
-		FRotator spawnRot = FRotator(40, 40, 40);
-		
-		//AActor* mySphere = SpawnBP<AActor>(World, StoneSphere, spawnLoc, spawnRot);
-
-
 	}//end if(World)
 
 

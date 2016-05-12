@@ -9,12 +9,10 @@
  * 
  */
 UCLASS()
-class CPPSPAWNTEST_API ACPPSpawnTestGameMode : public AGameMode
-{
+class CPPSPAWNTEST_API ACPPSpawnTestGameMode : public AGameMode {
 	GENERATED_BODY()
 	
 public:
 	void ACPPSpawnTestGameMode::BeginPlay();
-	
 	
 };
