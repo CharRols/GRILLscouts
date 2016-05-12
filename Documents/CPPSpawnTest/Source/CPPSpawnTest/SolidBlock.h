@@ -12,7 +12,8 @@ class CPPSPAWNTEST_API ASolidBlock : public AActor
 	
 public:	
 	UStaticMeshComponent* myBlock;
-	UStaticMeshComponent* myOtherBlock;
+	//used for spawned bp-defined actor
+	TSubclassOf<class AActor> myStoneSphere;
 
 	// Sets default values for this actor's properties
 	ASolidBlock(const FObjectInitializer & PCIP);

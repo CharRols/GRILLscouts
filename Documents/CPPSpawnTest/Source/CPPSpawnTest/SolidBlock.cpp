@@ -18,6 +18,22 @@ ASolidBlock::ASolidBlock(const class FObjectInitializer& PCIP) : Super(PCIP)
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+
+	//Spawn a blueprint defined actor when this c++ defined actor is spawned. **FObjectFinder MUST be used in a constructor
+	static ConstructorHelpers::FObjectFinder<UBlueprint> stoneSphere(TEXT("Blueprint'/Game/StoneSphereBP.StoneSphereBP'"));
+	if (stoneSphere.Object) {
+		myStoneSphere = (UClass*)stoneSphere.Object->GeneratedClass;
+	}
+
+	UWorld* const World = GetWorld();
+	if (World) {
+		AActor* mySphere = World->SpawnActor<AActor>(myStoneSphere);
+
+
+		FVector spawnLoc = FVector(90, 90, 210);
+		mySphere->SetActorLocation(spawnLoc);
+	}
+
 }
 
 // Called when the game starts or when spawned
