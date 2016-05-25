@@ -3,9 +3,14 @@
 
 using namespace std;
 
+struct layer {
+	int bin;
+	float value;
+};
+
 class Pixel {
 public:
-	vector<float> bands;
+	vector<layer*> bands;
 	int binNumber;
 
 	Pixel();

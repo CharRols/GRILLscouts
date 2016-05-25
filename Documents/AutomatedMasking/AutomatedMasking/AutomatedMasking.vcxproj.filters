@@ -21,7 +21,7 @@
     <ClCompile Include="..\bin.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Pixel.cpp">
+    <ClCompile Include="..\Pixel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -29,7 +29,7 @@
     <ClInclude Include="..\bin.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Pixel.h">
+    <ClInclude Include="..\Pixel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

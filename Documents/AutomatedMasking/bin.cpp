@@ -15,7 +15,6 @@ Bin::Bin(string title, int numBands) {
 		convert << i;
 		string bandNum = "Band " + convert.str();
 		bands[i]->bandName = (bandNum);
-		cout << bands[i]->bandName;
 	}
 }
 
