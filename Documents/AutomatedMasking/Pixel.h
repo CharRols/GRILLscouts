@@ -16,4 +16,5 @@ public:
 	Pixel();
 	Pixel(int);
 	void print();
+	bool compareBins();
 };

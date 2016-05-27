@@ -22,3 +22,12 @@ void Pixel::print() {
 		cout << "\n\n";
 	}
 }
+
+bool Pixel::compareBins() {
+	for (int i = 1; i < bands.size(); i++) {
+		if (bands[i] != bands[i - 1]) {
+			return false;
+		}
+	}
+	return true;
+}

@@ -19,16 +19,14 @@ int main() {
 	int numberOfBands;
 	cout << "How many bands does the data have? ";
 	cin >> numberOfBands;
-
-	vector<Pixel> pixels(totalPixels);
 	int numMeans = numberOfBins * numberOfBands;
-	//totalPixels = totalPixels * numBands;
-	//vector<float> pixelBands(totalPixels * numBands);
-	vector<float> means(numMeans);
-	vector<float> oldMeans(numMeans);
+
+	vector<vector<float> > means(numberOfBins, vector<float>(numberOfBands));
+	vector<vector<float>> oldMeans(numberOfBins, vector<float>(numberOfBands));
+	vector<Pixel> pixels(totalPixels);
 	vector<Bin> bins(numberOfBins);
 
-	//fill pixels with random values - this will eventually be filling with pixel values from images
+	//fill pixels with random values --------------------------------------------------------------------------------------------Fill with pixel values from images
 	for (int i = 0; i < totalPixels; i++) {
 		pixels[i] = Pixel(numberOfBands);
 		for (int j = 0; j < numberOfBands; j++) {
@@ -49,22 +47,35 @@ int main() {
 	cout << "\nBins Created\n";
 	
 
-	cout << "\nWhat are the initial means? Hit Enter between each one. \n"; //Eventually replace with clicked-on pixels
-	int count = 0;
+	//cout << "\nWhat are the initial means? Hit Enter between each one. \n"; //---------------------------------------------------Replace with clicked-on pixels
+	//int count = 0;
+	//for (int i = 0; i < numberOfBins; i++) {
+	//	for (int j = 0; j < numberOfBands; j++) {
+	//		cout << bins[i].name << " " << bins[i].bands[j]->bandName << ": ";
+	//		cin >> means[count];
+	//		bins[i].bands[j]->mean = means[count];
+	//		count++;
+	//	}
+	//}
+
+	//means.reserve(numMeans);
+	//vector<float> newMeans(numMeans);
 	for (int i = 0; i < numberOfBins; i++) {
+		//means[i].push_back(&newMeans);
 		for (int j = 0; j < numberOfBands; j++) {
 			cout << bins[i].name << " " << bins[i].bands[j]->bandName << ": ";
-			cin >> means[count];
-			bins[i].bands[j]->mean = means[count];
-			count++;
+			means[i][j] = static_cast <float> (rand() % 255);
+			bins[i].bands[j]->mean = means[i][j];
+			cout << means[i][j] << "\n";
 		}
 	}
 
+	cout << "\nRandom Means Created\n";
+
 	int binNumber;
 	float distance, lowest;
-	bool differentMeans = true;
-	int recalculated = 0;
-	while (!(means == oldMeans)) {
+	int recalculated = 0; //-----------------------------------------------------------------------------------------------------For Debug use only
+	while (means != oldMeans) {
 		for (int i = 0; i < numberOfBins; i++) {
 			bins[i].clear();
 		}
@@ -77,7 +88,7 @@ int main() {
 					distance = bins[k].bands[i]->mean - pixels[j].bands[i]->value;
 
 					if (distance < 0) { //if distance is negative make it positive ----------------------------------------------TODO find an abs function for floats
-						distance = distance - (distance * 2);
+						distance = -distance;
 					}
 					if (distance < lowest) {
 						lowest = distance;
@@ -92,40 +103,27 @@ int main() {
 					pixels[j].bands[i]->bin = binNumber;
 				}
 			}//end middle for - iterates through each bin
-			
 		}//end outer for - iterates through each band
 		
 		//set current means to oldMeans and then calculate new means
-		count = 0;
 		for (int i = 0; i < numberOfBins; i++) {
 			for (int j = 0; j < numberOfBands; j++) {
-				oldMeans[count] = means[count];
-				means[count] = bins[i].bands[j]->calculateMean();
-				count++;
+				oldMeans[i][j] = means[i][j];
+				means[i][j] = bins[i].bands[j]->calculateMean();
 			}
 		}
-		recalculated++;
+ 		recalculated++; //-------------------------------------------------------------------------------------------------------For Debug use only
 	}//end while
 
-	for (int i = 1; i < totalPixels; i++) {
-		for (int j = 0; j < numberOfBands; j++) {
-			if (pixels[i].bands[j]->bin != pixels[i - 1].bands[j]->bin) {
-				
-			}
+	for (int i = 0; i < totalPixels; i++) {
+		if (pixels[i].compareBins()) {
+			pixels[i].binNumber = pixels[i].bands[0]->bin;
 		}
-
+		else {
+			pixels[i].binNumber = (bins.size()-1);
+		}
 	}
 
-
-
-	//cout << "Means: ";
-	//for (int i = 0; i < means.size(); i++) {
-	//	cout << means[i] << " ";
-	//}
-	//cout << "\nOld Means: ";
-	//for (int i = 0; i < oldMeans.size(); i++) {
-	//	cout << oldMeans[i] << " ";
-	//}
 	cout << "\n";
 	for (int i = 0; i < numberOfBins; i++) {
 		bins[i].print();
