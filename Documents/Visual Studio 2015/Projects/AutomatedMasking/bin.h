@@ -26,7 +26,7 @@ struct cluster {
 	}
 
 	void print() {
-		cout << "Name: " << bandName << "\nContains: ";
+		cout << "Band: " << bandName << "\nContains: ";
 		for (int i = 0; i < points.size(); i++) {
 			cout << points[i] << " ";
 		}

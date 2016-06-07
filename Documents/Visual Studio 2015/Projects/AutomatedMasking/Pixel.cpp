@@ -14,13 +14,15 @@ Pixel::Pixel(int numBands) {
 }
 
 void Pixel::print() {
+	cout << "Located in bin " << binNumber;
 	for (int i = 0; i < bands.size(); i++) {
-		cout << "Band ";
+		cout << "\nBand ";
 		cout << i;
 		cout << ": ";
 		cout << bands[i]->value;
-		cout << "\n\n";
+		cout << "\n";
 	}
+	cout << "\n";
 }
 
 bool Pixel::compareBins() {
