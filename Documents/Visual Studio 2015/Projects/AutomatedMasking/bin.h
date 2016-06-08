@@ -6,31 +6,26 @@
 
 using namespace std;
 
-struct cluster {
-	vector<float> points;
-	float mean;
-	string bandName;
+struct imagePixel {
+	vector<float> bands;
+	//string binNumber;
 
+	imagePixel(int numBands) {
+		bands.reserve(numBands);
+	}
 
-	float calculateMean() {
-		if (points.size() == 0) {
-			return 0;
+	imagePixel(vector<float> bandsSet) {
+		for (int i = 0; i < bands.size(); i++) {
+			bands[i] = bandsSet[i];
 		}
-		float average = 0;
-		for (int i = 0; i < points.size(); i++) {
-			average = average + points[i];
-		}
-		average = (average / points.size());
-		mean = average;
-		return average;
 	}
 
 	void print() {
-		cout << "Band: " << bandName << "\nContains: ";
-		for (int i = 0; i < points.size(); i++) {
-			cout << points[i] << " ";
+		//cout << "Band: " << bandName << "\nContains: ";
+		for (int i = 0; i < bands.size(); i++) {
+			cout << bands[i] << " ";
 		}
-		cout << "\nMean: " << mean << "\n\n";
+		//cout << "In bin: " << binNumber;
 	}
 };
 
@@ -38,11 +33,14 @@ struct cluster {
 class Bin{
 public:
 	Bin();
-	Bin(string, int);
+	Bin(string, int, int);
 	void clear();
 	void print();
+	void makePixel(vector<float>);
+	float calculateMean(int);
 
-	vector<cluster*> bands;
+	vector<imagePixel*> pixels;
+	vector<float> mean;
 	string name;
 
 private:
