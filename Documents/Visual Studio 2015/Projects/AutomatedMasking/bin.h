@@ -8,14 +8,14 @@ using namespace std;
 
 struct imagePixel {
 	vector<float> bands;
-	//string binNumber;
 
 	imagePixel(int numBands) {
-		bands.reserve(numBands);
+		bands.resize(numBands, 0);
 	}
 
 	imagePixel(vector<float> bandsSet) {
-		for (int i = 0; i < bands.size(); i++) {
+		bands.resize(bandsSet.size(), 0);
+		for (int i = 0; i < bandsSet.size(); i++) {
 			bands[i] = bandsSet[i];
 		}
 	}
@@ -25,7 +25,7 @@ struct imagePixel {
 		for (int i = 0; i < bands.size(); i++) {
 			cout << bands[i] << " ";
 		}
-		//cout << "In bin: " << binNumber;
+		cout << "\n";
 	}
 };
 

@@ -78,7 +78,7 @@ int main() {
 		}
 
 		for (int j = 0; j < totalPixels; j++) {
-			lowest = 300; //color values only go up to 255 so the first mean will always be closer
+			lowest = 450; 
 			binNumber = -1;
 			for (int k = 0; k < numberOfBins; k++) {
 				for (int i = 0; i < numberOfBands; i++) {
@@ -96,11 +96,7 @@ int main() {
 				cout << "\n\nError\n\n";
 			}
 			else {
-				for (int i = 0; i < numberOfBands; i++) {
-					//bins[binNumber].pixels.push_back(pixels[j].bands[i]->value);
-					bins[binNumber].makePixel(pixels[j]);
-					pixels[binNumber][i] = binNumber;
-				}
+				bins[binNumber].makePixel(pixels[j]);
 			}
 		}//end outer for - iterates through each pixel
 
