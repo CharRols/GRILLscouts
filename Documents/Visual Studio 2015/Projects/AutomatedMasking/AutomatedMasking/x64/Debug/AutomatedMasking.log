@@ -1,4 +1,3 @@
 ﻿  AutomatedMasking.cpp
-c:\users\stem\documents\visual studio 2015\projects\automatedmasking\automatedmasking.cpp(123): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
   AutomatedMasking.vcxproj -> C:\Users\STEM\Documents\Visual Studio 2015\Projects\AutomatedMasking\x64\Debug\AutomatedMasking.exe
   AutomatedMasking.vcxproj -> C:\Users\STEM\Documents\Visual Studio 2015\Projects\AutomatedMasking\x64\Debug\AutomatedMasking.pdb (Partial PDB)

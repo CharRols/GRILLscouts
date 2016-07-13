@@ -1,34 +1,52 @@
 #include "bin.h"
 #include <iostream>
 #include <sstream>
+//#include "opencv\sources\modules\core\include\opencv2\core.hpp"
+//#include "mat.hpp"
 
 using namespace std;
 
 int main() {
+	int totalXPixels;
+	int totalYPixels;
 	int totalPixels;
-	string str;
-	cout << "What resolution are your images? ";
-	cin >> totalPixels;
-	totalPixels = totalPixels * totalPixels;
+	cout << "What is the X resolution of your images? ";
+	cin >> totalXPixels;
 
-	int numberOfBins;
-	cout << "How many features do you need classified? ";
-	cin >> numberOfBins;
+	cout << "What is the Y resolution of your images? ";
+	cin >> totalYPixels;
+	totalPixels = totalXPixels * totalYPixels;
+
+	int numberOfBins = 4;
+	while (numberOfBins > 3) {
+		cout << "How many features do you need classified? (Up to 3)";
+		cin >> numberOfBins;
+	}
+
+	vector<float> percentages;
+	percentages.resize(numberOfBins);
+	for (int i = 0; i < numberOfBins; i++) {
+		percentages[i] = 150;
+		while (percentages[i] > 100 || percentages[i] < 0) {
+			cout << "What percentage of the satellite data do you want to show through?";
+			cin >> percentages[i];
+		}
+		percentages[i] = (percentages[i] / 100) * 255; //multiply by 255 because that the max value for rgb color
+	}
 
 	int numberOfBands;
 	cout << "How many bands does the data have? ";
 	cin >> numberOfBands;
 	int numMeans = numberOfBins * numberOfBands;
 
-	vector<vector<float> > means(numberOfBins, vector<float>(numberOfBands));
+	vector<vector<float>> means(numberOfBins, vector<float>(numberOfBands));
 	vector<vector<float>> oldMeans(numberOfBins, vector<float>(numberOfBands));
 	vector<vector<float>> pixels(totalPixels, vector<float>(numberOfBands));
-	//vector<Pixel> pixels(totalPixels);
 	vector<Bin> bins(numberOfBins);
+	//---------------------------------------------------------------------------------------------------------------------------Input an image
 
-	//fill pixels with random values --------------------------------------------------------------------------------------------Fill with pixel values from images
+	//fill pixels with random values --------------------------------------------------------------------------------------------Replace with fill with pixel values from images
 	for (int i = 0; i < totalPixels; i++) {
-		//pixels[i] = Pixel(numberOfBands);
 		for (int j = 0; j < numberOfBands; j++) {
 			pixels[i][j] = static_cast <float> (rand() % 255);
 		}
@@ -44,19 +62,8 @@ int main() {
 	bins.push_back(Bin("Non-Feature Landscape", totalPixels, numberOfBands));
 	cout << "\nBins Created\n";
 
-	//cout << "\nWhat are the initial means? Hit Enter between each one. \n"; //---------------------------------------------------Replace with clicked-on pixels
-	//int count = 0;
-	//for (int i = 0; i < numberOfBins; i++) {
-	//	for (int j = 0; j < numberOfBands; j++) {
-	//		cout << bins[i].name << " " << bins[i].bands[j]->bandName << ": ";
-	//		cin >> means[count];
-	//		bins[i].bands[j]->mean = means[count];
-	//		count++;
-	//	}
-	//}
-
-	for (int i = 0; i < numberOfBins; i++) {
-		//bins[i].addPixel(numberOfBands); --Not needed, pixels are created when the bin is
+	//Assign random means to each bin
+	for (int i = 0; i < numberOfBins; i++) {//-------------------------------------------------------------------------------------Replace with clicked-on pixels (Drag a section and take euclidean distance of that for initial means?)
 		for (int j = 0; j < numberOfBands; j++) {
 			cout << bins[i].name << " ";
 			bins[i].mean.resize(numberOfBands);
@@ -78,7 +85,9 @@ int main() {
 		}
 
 		for (int j = 0; j < totalPixels; j++) {
-			lowest = 450; 
+			//with a max of 255 for each band in a pixel, the max distance between two pixels is ~800 if there are 10 bands. The max number of bands
+			//that this will currently be used is 7, so setting lowest to 1000 makes sure that the first bin will always initially be the lowest.
+			lowest = 1000; 
 			binNumber = -1;
 			for (int k = 0; k < numberOfBins; k++) {
 				for (int i = 0; i < numberOfBands; i++) {
@@ -115,5 +124,6 @@ int main() {
 		bins[i].print();
 	}
 
+	//---------------------------------------------------------------------------------------------------------------------------Output new image
 	system("PAUSE");
 }//End main
