@@ -12,12 +12,10 @@ Bin::Bin(string title, int numPixels, int numBands) {
 	mean.reserve(numBands);
 	for (int i = 0; i < numPixels; i++) {
 		pixels.push_back(new imagePixel(numBands));
-		//pixels[i]->bands.resize(numBands);
 	}
 }
 
 void Bin::clear() {
-	//pixels.resize(pixels.size(), 0);
 	pixels.clear();
 }
 
@@ -36,11 +34,6 @@ void Bin::print() {
 
 void Bin::makePixel(vector<float> newBands) {
 	pixels.push_back(new imagePixel(newBands));
-	//for (int i = 0; i < pixels.size(); i++) {
-	//	for (int j = 0; j < pixels[i]->bands.capacity(); j++) {
-	//		pixels[i]->bands[j] = newBands[j];
-	//	}
-	//}
 }
 
 float Bin::calculateMean(int bandNum) {

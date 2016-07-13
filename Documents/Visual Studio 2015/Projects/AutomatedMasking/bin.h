@@ -21,7 +21,6 @@ struct imagePixel {
 	}
 
 	void print() {
-		//cout << "Band: " << bandName << "\nContains: ";
 		for (int i = 0; i < bands.size(); i++) {
 			cout << bands[i] << " ";
 		}
