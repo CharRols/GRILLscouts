@@ -2,6 +2,7 @@
 #include <sstream>
 #include <ostream>
 
+using namespace cv;
 using namespace std;
 
 Bin::Bin(){}
@@ -32,8 +33,8 @@ void Bin::print() {
 	cout << "\n";
 }
 
-void Bin::makePixel(vector<float> newBands) {
-	pixels.push_back(new imagePixel(newBands));
+void Bin::makePixel(vector<uchar> newBands, int xCoord, int yCoord) {
+	pixels.push_back(new imagePixel(newBands, xCoord, yCoord));
 }
 
 float Bin::calculateMean(int bandNum) {
