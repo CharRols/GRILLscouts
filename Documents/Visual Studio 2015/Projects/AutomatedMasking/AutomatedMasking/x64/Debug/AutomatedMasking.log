@@ -1,2 +1,0 @@
-﻿  AutomatedMasking.cpp
-c:\users\stem\documents\visual studio 2015\projects\automatedmasking\automatedmasking.cpp(117): error C2660: 'Bin::makePixel': function does not take 1 arguments
